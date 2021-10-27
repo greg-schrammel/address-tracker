@@ -22,7 +22,7 @@ export const Footer = () => (
       whileHover={{ scale: 1.1 }}
       whileFocus={{ scale: 1.1 }}
       css={{
-        fontSize: '$regular',
+        fontSize: '$sm',
         fontWeight: '$bold',
         color: 'black',
         cursor: 'pointer',

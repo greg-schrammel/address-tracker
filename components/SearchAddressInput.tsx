@@ -37,16 +37,16 @@ export const AddressInputContainer = styled(View, {
   variants: {
     variant: {
       large: {
-        borderRadius: 12,
+        borderRadius: 16,
         input: {
           fontSize: '$md',
-          borderRadius: 12,
+          borderRadius: 16,
         },
       },
       default: {
-        borderRadius: 8,
+        borderRadius: 12,
         input: {
-          borderRadius: 8,
+          borderRadius: 12,
           fontWeight: '$regular',
         },
       },
@@ -159,6 +159,7 @@ export const useAddressInput = (onSubmit, addresses = []) => {
   const verifyAndSubmitAddress = async (selectedSuggestion = undefined) => {
     let address = selectedSuggestion
     if (typeof selectedSuggestion !== 'string') {
+      if (!inputValue) return
       setLoading(true)
       // if it wasn't a selected suggestion use the actual input value,
       // searchQuery is debounce and can be outdated when user types fast

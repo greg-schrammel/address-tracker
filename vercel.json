@@ -3,7 +3,16 @@
   "trailingSlash": false,
   "headers": [
     {
-      "source": "/fonts/inter-var.woff2",
+      "source": "/fonts/CircularStd-Bold.ttf",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/fonts/CircularStd-Black.ttf",
       "headers": [
         {
           "key": "Cache-Control",

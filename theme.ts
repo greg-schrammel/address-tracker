@@ -39,7 +39,7 @@ export const { styled, css, getCssText, globalCss } = createStitches({
       xxl: '48px',
     },
     fonts: {
-      sans: `'Inter', apple-system, sans-serif`,
+      sans: `'Circular', apple-system, sans-serif`,
       mono: 'Söhne Mono, menlo, monospace',
     },
     fontWeights: {

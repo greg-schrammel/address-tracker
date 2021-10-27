@@ -55,7 +55,7 @@ const SearchAddressInput = ({ onSubmit }) => {
                 py: 6,
                 px: 10,
                 mr: -7,
-                borderRadius: 8,
+                borderRadius: 12,
                 alignItems: 'center',
                 cursor: 'pointer',
               }
@@ -157,10 +157,10 @@ export default function App() {
           textAlign: 'center',
         }}
       >
-        <Text as="h1" css={{ fontSize: '$xxl', fontWeight: '$black', mb: '1rem' }}>
+        <Text as="h1" css={{ fontSize: '$xxl', fontWeight: '$black', mb: 0 }}>
           Track all your wallets from a single place
         </Text>
-        <SupportedChains css={{ mb: '2rem' }} />
+        <SupportedChains css={{ my: '1.5rem' }} />
         <SearchAddressInput onSubmit={onSubmit} />
         <Text
           css={{
