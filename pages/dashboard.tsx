@@ -16,7 +16,7 @@ import { AddressesBalances, ChainId } from '@features/wallet'
 // const fetchBalances = ({ address }) => balancesOf(address) as Promise<AddressBalances>
 
 const fetchBalances = ({ address }) =>
-  fetch(`/api/${address}/all`).then(async (d) => {
+  fetch(`/api/${address}/tokens`).then(async (d) => {
     const r = await d.json()
     if (!d.ok) throw new Error('Opss something went wrong')
     return r
@@ -109,7 +109,6 @@ export default function App({ initialAddresses, initialAddressChainFilter }) {
   const addAddress = ({ address }) => {
     setAddresses([...addresses, address])
   }
-  console.log(addressesQueryData[0].data)
   return (
     <>
       <Header />

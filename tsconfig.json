@@ -8,7 +8,9 @@
       "esnext"
     ],
     "paths": {
-      "@*": ["./*"]
+      "@*": [
+        "./*"
+      ]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -20,7 +22,8 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "incremental": true
   },
   "exclude": [
     "node_modules"
@@ -28,6 +31,8 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "pages/_document.tsx", "stitches.config,ts"  ]
+    "**/*.tsx",
+    "pages/_document.tsx",
+    "stitches.config,ts"
+  ]
 }
