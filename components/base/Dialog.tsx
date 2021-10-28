@@ -82,13 +82,12 @@ export const Dialog = ({
   onEscapeKeyDown,
   title,
   description,
-  Trigger,
   ConfirmButton,
   children = null,
 }) => {
   return (
     <DialogRoot open={open} onOpenChange={onOpenChange}>
-      <DialogTrigger asChild>{Trigger}</DialogTrigger>
+      {/* <DialogTrigger asChild>{children}</DialogTrigger> */}
       <DialogContent onPointerDownOutside={onPointerDownOutside} onEscapeKeyDown={onEscapeKeyDown}>
         <DialogTitle>{title}</DialogTitle>
         <DialogDescription>{description}</DialogDescription>

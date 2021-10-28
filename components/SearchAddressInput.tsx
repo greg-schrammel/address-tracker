@@ -13,7 +13,7 @@ import { styled } from '@theme'
 import { View } from '@components/base/View'
 import { Input } from '@components/base/Input'
 import { useOnClickOutside } from '@components/hooks/useOnClickOutside'
-import ens, { fetchENSSuggestions } from '@lib/ens'
+import { fetchENSSuggestions } from '@lib/ens'
 import { isSupportedAddress } from '@lib/validateAddress'
 import { slate } from '@radix-ui/colors'
 import { validate } from 'trezor-address-validator'
@@ -169,7 +169,7 @@ export const useAddressInput = (onSubmit, addresses = []) => {
     if (isSupportedAddress(address)) return onSubmit({ address })
     else {
       setLoading(true)
-      const resolvedENS = await ens.resolve(address)
+      const resolvedENS = await import('lib/ens').then((ens) => ens.resolve(address))
       if (resolvedENS) return onSubmit({ address: resolvedENS })
       setLoading(false)
       if (addresses.find((a) => a === resolvedENS)) return setError('Address already added')

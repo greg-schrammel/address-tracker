@@ -29,7 +29,7 @@ const ExtraInfo = ({ tokenByChain }: { tokenByChain: TokenBalanceByChain['contra
   return (
     <View>
       {Object.entries(tokenByChain).map(([chainId, chainData]) => (
-        <HoverCard.Root openDelay={750} closeDelay={150}>
+        <HoverCard.Root openDelay={750} closeDelay={150} key={chainId}>
           <HoverCard.Trigger>
             <View css={{ p: 5, borderRadius: '50%', backgroundColor: Chain[chainId].color }}></View>
           </HoverCard.Trigger>
@@ -51,7 +51,7 @@ const ExtraInfo = ({ tokenByChain }: { tokenByChain: TokenBalanceByChain['contra
             >
               <View css={{ flexDirection: 'column', gap: 6 }}>
                 {Object.entries(chainData).map(([address, t]) => (
-                  <View css={{ flexDirection: 'column' }}>
+                  <View css={{ flexDirection: 'column' }} key={address}>
                     <Text css={{ fontWeight: '$medium', fontSize: '$xs', color: slate.slate10 }}>
                       {address.substr(0, 6)}...
                       {address.substr(address.length - 6, address.length)}

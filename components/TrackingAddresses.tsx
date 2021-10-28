@@ -19,6 +19,7 @@ import { toOxfordComma } from '@lib/textFormat'
 import * as Tooltip from '@radix-ui/react-tooltip'
 import { CopyToClipboard as ReactCopyToClipboard } from 'react-copy-to-clipboard'
 import { DropdownMenu, DropdownMenuItem } from './base/Dropdown'
+import dynamic from 'next/dynamic'
 
 const isEmptyObj = (obj = {}) => Object.keys(obj).length === 0
 
@@ -172,66 +173,38 @@ const TrackedAddress = ({
   )
 }
 
+const AddAddressDialog = dynamic(() => import('components/AddAddressDialog'))
+
 const AddAddress = ({ onAddAddress, addresses }) => {
   const [isOpen, setOpen] = useState(false)
   const close = () => setOpen(false)
-  const { suggestions, onChange, error, isLoading, verifyAndSubmitAddress } = useAddressInput(
-    ({ address }) => {
-      onAddAddress({ address })
-      close()
-    },
-    addresses,
-  )
   return (
-    <Dialog
-      open={isOpen}
-      onOpenChange={setOpen}
-      onPointerDownOutside={close}
-      onEscapeKeyDown={close}
-      Trigger={
-        <Button
-          whileTap={{
-            scale: 0.95,
-          }}
-          variant="slate"
-          css={{
-            borderRadius: 6,
-            py: 5,
-            px: 10,
-          }}
-        >
-          Add wallet
-          <BiPlus style={{ marginLeft: '4px' }} />
-        </Button>
-      }
-      title="Add address to track"
-      description={`Supported chains are ${toOxfordComma(
-        Chains.map((chain) => chain.displayFullName),
-      )}`}
-      ConfirmButton={
-        <Button onTap={verifyAndSubmitAddress} variant="black" css={{ fontWeight: '$bold' }}>
-          Add Address
-        </Button>
-      }
-    >
-      <View css={{ flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-        <AddressInputContainer>
-          <SuggestionsCombobox
-            onChange={onChange}
-            onEnter={verifyAndSubmitAddress}
-            onSelectSuggestion={verifyAndSubmitAddress}
-            suggestions={suggestions}
-            placeholder="Search any Address or ENS"
-          />
-          {isLoading ? <LoadingIndicator size={18} /> : <BiSearch size={18} />}
-        </AddressInputContainer>
-        {error && (
-          <Text css={{ fontSize: '$sm', fontWeight: '$semibold', color: '$error', mt: '0.5rem' }}>
-            {error}
-          </Text>
-        )}
-      </View>
-    </Dialog>
+    <>
+      <Button
+        whileTap={{
+          scale: 0.95,
+        }}
+        onTap={() => setOpen(true)}
+        variant="slate"
+        css={{
+          borderRadius: 6,
+          py: 5,
+          px: 10,
+        }}
+      >
+        Add wallet
+        <BiPlus style={{ marginLeft: '4px' }} />
+      </Button>
+      {isOpen && (
+        <AddAddressDialog
+          addresses={addresses}
+          onAddAddress={onAddAddress}
+          isOpen={isOpen}
+          onOpenChange={setOpen}
+          onClose={close}
+        />
+      )}
+    </>
   )
 }
 
