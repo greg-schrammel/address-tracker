@@ -3,7 +3,7 @@
   "trailingSlash": false,
   "headers": [
     {
-      "source": "/fonts/CircularStd-Bold.ttf",
+      "source": "/fonts/CircularStd-Bold.woff2",
       "headers": [
         {
           "key": "Cache-Control",
@@ -12,7 +12,7 @@
       ]
     },
     {
-      "source": "/fonts/CircularStd-Black.ttf",
+      "source": "/fonts/CircularStd-Black.woff2",
       "headers": [
         {
           "key": "Cache-Control",

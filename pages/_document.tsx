@@ -9,16 +9,16 @@ export default class Document extends NextDocument {
         <Head>
           <link
             rel="preload"
-            href="/fonts/CircularStd-Bold.ttf"
+            href="/fonts/CircularStd-Bold.woff2"
             as="font"
-            type="font/ttf"
+            type="font/woff2"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/CircularStd-Black.ttf"
+            href="/fonts/CircularStd-Black.woff2"
             as="font"
-            type="font/ttf"
+            type="font/woff2"
             crossOrigin="anonymous"
           />
           <link href="/fonts.css" rel="stylesheet" />
