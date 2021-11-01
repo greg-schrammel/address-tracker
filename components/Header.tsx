@@ -45,10 +45,9 @@ export const Header = () => (
     }}
   >
     <Link href="/" passHref>
-      {/* <LogoImage src={burrito} height={50} width={50} whileHover={{ scale: 0.9 }} /> */}
       <LogoText>some logo idk</LogoText>
     </Link>
-    <Link href="https://github.com/greg-schrammel/portfolio" passHref>
+    <Link href="https://github.com/greg-schrammel/address-tracker" passHref>
       <StyledLink>
         <GithubIcon size={24} />
       </StyledLink>
